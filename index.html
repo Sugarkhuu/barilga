@@ -13,7 +13,7 @@
 
 <script>
     // Fetch the CSV data
-    fetch('https://raw.githubusercontent.com/Sugarkhuu/my-data-charts/master/data/data.csv')
+    fetch('https://raw.githubusercontent.com/Sugarkhuu/house_price/master/data/data.csv')
     .then(response => response.text())
     .then(data => {
         const rows = data.split('\n').slice(1);
