@@ -34,11 +34,13 @@
         const rows = data.split('\n').slice(1);  // Skipping the header row
         const dates = [];
         const medians = [];
-        
+        const counts = []; // New array for count data
+
         rows.forEach(row => {
             const cols = row.split(',');
             dates.push(cols[0]);  // Assuming the first column is the date
             medians.push(parseFloat(cols[1]));  // Assuming the second column is the median price
+            counts.push(parseInt(cols[3]));  // Assuming the fourth column is the count
         });
 
         // Calculate the 7-day and 30-day moving averages
@@ -49,7 +51,7 @@
             x: dates,
             y: medians,
             mode: 'markers',  // Only dots
-            marker: { color: 'blue', size: 6 },
+            marker: { color: '#0f0f0f', size: 6 }, // Blue color in hex
             name: 'Тухайн өдөр',
             hovertemplate: '%{x|%d/%m/%Y}: %{y:.2f}₮'  // Format hover as dd/mm/yyyy
         };
@@ -58,7 +60,7 @@
             x: dates,
             y: movingAvg7,
             mode: 'lines',  // Only line for the trend
-            line: { color: 'red', width: 2 },
+            line: { color: '#0fd91d', width: 2 }, // Red color in hex
             name: 'Сүүлийн 7 хоног',
             hovertemplate: 'Сүүлийн 7 хоног: %{y:.2f}₮'
         };
@@ -67,9 +69,20 @@
             x: dates,
             y: movingAvg30,
             mode: 'lines',  // Only line for the trend
-            line: { color: 'green', width: 2, dash: 'dot' },
+            line: { color: '#2ab533', width: 2, dash: 'dot' }, // Green color in hex
             name: 'Сүүлийн 30 хоног',
             hovertemplate: 'Сүүлийн 30 хоног: %{y:.2f}₮'
+        };
+
+        // New trace for count data
+        const traceCount = {
+            x: dates,
+            y: counts,
+            type: 'bar',
+            marker: { color: '#0d0d45' }, // Pale blue color in hex
+            name: 'Тооны хэмжээ',
+            hovertemplate: '%{x|%d/%m/%Y}: %{y}',  // Removed '%' from hover
+            yaxis: 'y2'  // Use a secondary y-axis
         };
 
         const layout = {
@@ -82,6 +95,17 @@
                 ]
             },
             yaxis: { title: 'сая төгрөгөөр' },
+            yaxis2: {  // Secondary y-axis for count
+                overlaying: 'y',
+                side: 'right',
+                showgrid: false,
+                zeroline: false,
+                showline: false,
+                ticks: '',  // Remove ticks
+                title: '',  // Remove title
+                showticklabels: false,  // Hide y-ticks
+                range: [0, 10000]  // Set range from 0 to 10000
+            },
             legend: {
                 orientation: 'h',  // Horizontal legend
                 yanchor: 'bottom',
@@ -92,7 +116,7 @@
             responsive: true
         };
 
-        Plotly.newPlot('chart', [traceDots, traceTrend7, traceTrend30], layout);
+        Plotly.newPlot('chart', [traceDots, traceTrend7, traceTrend30, traceCount], layout);
     })
     .catch(error => console.error('Error fetching or processing data:', error));
 </script>
