@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Орон сууцны медиан үнийн хөдөлгөөн</title>
+    <title>Улаанбаатар хотын орон сууцны борлуулах үнийн хөдөлгөөн (медиан)</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
 
-<h1>Орон сууцны медиан үнийн хөдөлгөөн</h1>
+<h1>Улаанбаатар хотын орон сууцны борлуулах үнийн хөдөлгөөн (медиан)</h1>
 <div id="chart" style="width: 100%; height: 600px;"></div> <!-- Increased height -->
 
 <script>
@@ -80,9 +80,15 @@
             x: dates,
             y: counts,
             type: 'bar',
-            marker: { color: '#555f66' }, // Pale blue color in hex  #0d0d45
-            name: 'Тооны хэмжээ',
-            hovertemplate: '%{x|%d/%m/%Y}: %{y}',  // Removed '%' from hover
+            marker: {
+                color: '#ffffff', // White fill color
+                line: {
+                    color: '#0d0d0d', // Grey outline color
+                    width: 0.5 // Width of the outline
+                }
+            },
+            name: 'Зарын тоо',
+            hovertemplate: 'Зарын тоо: %{y}',  // Show name in hover
             yaxis: 'y2'  // Use a secondary y-axis
         };
 
