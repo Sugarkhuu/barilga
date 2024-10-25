@@ -50,8 +50,9 @@
         const traceDots = {
             x: dates,
             y: medians,
-            mode: 'markers',  // Only dots
-            marker: { color: '#0f0f0f', size: 6 }, // Blue color in hex
+            mode: 'lines+markers',  // Connect dots with lines
+            line: { color: '#ad9a9a', width: 0.5, shape: 'spline' }, // Smooth line in hex
+            marker: { color: '#786e6d', size: 6 }, // Blue color in hex for dots 
             name: 'Тухайн өдөр',
             hovertemplate: '%{x|%d/%m/%Y}: %{y:.2f}₮'  // Format hover as dd/mm/yyyy
         };
@@ -60,7 +61,7 @@
             x: dates,
             y: movingAvg7,
             mode: 'lines',  // Only line for the trend
-            line: { color: '#0fd91d', width: 2 }, // Red color in hex
+            line: { color: '#0d0d0d', width: 2 }, // Red color in hex
             name: 'Сүүлийн 7 хоног',
             hovertemplate: 'Сүүлийн 7 хоног: %{y:.2f}₮'
         };
@@ -69,7 +70,7 @@
             x: dates,
             y: movingAvg30,
             mode: 'lines',  // Only line for the trend
-            line: { color: '#2ab533', width: 2, dash: 'dot' }, // Green color in hex
+            line: { color: '#0d0d0d', width: 2, dash: 'dot' }, // Green color in hex
             name: 'Сүүлийн 30 хоног',
             hovertemplate: 'Сүүлийн 30 хоног: %{y:.2f}₮'
         };
@@ -79,7 +80,7 @@
             x: dates,
             y: counts,
             type: 'bar',
-            marker: { color: '#0d0d45' }, // Pale blue color in hex
+            marker: { color: '#555f66' }, // Pale blue color in hex  #0d0d45
             name: 'Тооны хэмжээ',
             hovertemplate: '%{x|%d/%m/%Y}: %{y}',  // Removed '%' from hover
             yaxis: 'y2'  // Use a secondary y-axis
