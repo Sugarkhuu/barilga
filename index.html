@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Median Price Trend</title>
+    <title>Орон сууцны медиан үнийн хөдөлгөөн</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
 
-<h1>Daily Median Price Trend</h1>
-<div id="chart" style="width: 100%; height: 500px;"></div>
+<h1>Орон сууцны медиан үнийн хөдөлгөөн</h1>
+<div id="chart" style="width: 100%; height: 600px;"></div> <!-- Increased height -->
 
 <script>
     // Function to calculate the moving average
@@ -41,33 +41,58 @@
             medians.push(parseFloat(cols[1]));  // Assuming the second column is the median price
         });
 
-        // Calculate the moving average
-        const movingAvg = movingAverage(medians, 30); // 7-day moving average
+        // Calculate the 7-day and 30-day moving averages
+        const movingAvg7 = movingAverage(medians, 7); // 7-day moving average
+        const movingAvg30 = movingAverage(medians, 30); // 30-day moving average
 
         const traceDots = {
             x: dates,
             y: medians,
             mode: 'markers',  // Only dots
             marker: { color: 'blue', size: 6 },
-            name: 'Daily Median Price'
+            name: 'Тухайн өдөр',
+            hovertemplate: '%{x|%d/%m/%Y}: %{y:.2f}₮'  // Format hover as dd/mm/yyyy
         };
 
-        const traceTrend = {
+        const traceTrend7 = {
             x: dates,
-            y: movingAvg,
+            y: movingAvg7,
             mode: 'lines',  // Only line for the trend
             line: { color: 'red', width: 2 },
-            name: '7-Day Moving Average'
+            name: 'Сүүлийн 7 хоног',
+            hovertemplate: 'Сүүлийн 7 хоног: %{y:.2f}₮'
+        };
+
+        const traceTrend30 = {
+            x: dates,
+            y: movingAvg30,
+            mode: 'lines',  // Only line for the trend
+            line: { color: 'green', width: 2, dash: 'dot' },
+            name: 'Сүүлийн 30 хоног',
+            hovertemplate: 'Сүүлийн 30 хоног: %{y:.2f}₮'
         };
 
         const layout = {
-            title: 'Daily Median Price with Moving Average Trend',
-            xaxis: { title: 'Date' },
-            yaxis: { title: 'Median Price' },
+            title: '',
+            xaxis: { 
+                title: '',
+                tickformat: '%Y-%m', // Format as YYYY-MM for the x-axis
+                tickformatstops: [
+                    { dtickrange: [null, "M1"], value: "%Y-%m" }  // Display as YYYY-MM
+                ]
+            },
+            yaxis: { title: 'сая төгрөгөөр' },
+            legend: {
+                orientation: 'h',  // Horizontal legend
+                yanchor: 'bottom',
+                y: -0.2,  // Adjust the position below the chart
+                xanchor: 'center',
+                x: 0.5  // Center the legend
+            },
             responsive: true
         };
 
-        Plotly.newPlot('chart', [traceDots, traceTrend], layout);
+        Plotly.newPlot('chart', [traceDots, traceTrend7, traceTrend30], layout);
     })
     .catch(error => console.error('Error fetching or processing data:', error));
 </script>
