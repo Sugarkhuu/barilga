@@ -3,96 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Charts</title>
+    <title>Daily Median Price Trend</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
 
-<h1>My Dynamic Charts</h1>
-
-<!-- Container for the original data chart -->
-<h2>Daily Data Chart</h2>
-<div id="chart1" style="width: 100%; height: 500px;"></div>
-
-<!-- Container for the daily median price chart -->
-<h2>Daily Median Price Chart</h2>
-<div id="chart2" style="width: 100%; height: 500px;"></div>
+<h1>Daily Median Price Trend</h1>
+<div id="chart" style="width: 100%; height: 500px;"></div>
 
 <script>
-    // Fetch and plot the original daily data chart
-    fetch('https://raw.githubusercontent.com/Sugarkhuu/house_price/master/data/data.csv?' + new Date().getTime())
-    .then(response => {
-        if (!response.ok) throw new Error("Network response was not ok.");
-        return response.text();
-    })
-    .then(data => {
-        const rows = data.split('\n').slice(1);
-        const dates = [];
-        const values = [];
-        
-        rows.forEach(row => {
-            const cols = row.split(',');
-            dates.push(cols[0]);
-            values.push(parseFloat(cols[1]));
-        });
+    // Function to calculate the moving average
+    function movingAverage(data, windowSize) {
+        let result = [];
+        for (let i = 0; i < data.length; i++) {
+            const start = Math.max(0, i - windowSize + 1);
+            const subset = data.slice(start, i + 1);
+            const avg = subset.reduce((sum, value) => sum + value, 0) / subset.length;
+            result.push(avg);
+        }
+        return result;
+    }
 
-        const trace1 = {
-            x: dates,
-            y: values,
-            type: 'scatter',
-            mode: 'lines+markers',
-            marker: { color: 'blue' },
-            line: { shape: 'spline' }
-        };
-
-        const layout1 = {
-            title: 'Daily Data Chart',
-            xaxis: { title: 'Date' },
-            yaxis: { title: 'Value' },
-            responsive: true
-        };
-
-        Plotly.newPlot('chart1', [trace1], layout1);
-    })
-    .catch(error => console.error('Error fetching or processing data:', error));
-
-    // Fetch and plot the daily median price chart
+    // Fetch and plot the daily median price chart with a moving average trend line
     fetch('https://raw.githubusercontent.com/Sugarkhuu/house_price/master/data/data_uneguiplot_dailyprice.csv?' + new Date().getTime())
     .then(response => {
         if (!response.ok) throw new Error("Network response was not ok.");
         return response.text();
     })
     .then(data => {
-        const rows = data.split('\n').slice(1);
+        const rows = data.split('\n').slice(1);  // Skipping the header row
         const dates = [];
         const medians = [];
         
         rows.forEach(row => {
             const cols = row.split(',');
-            dates.push(cols[0]);
-            medians.push(parseFloat(cols[1]));  // Fetching median data
+            dates.push(cols[0]);  // Assuming the first column is the date
+            medians.push(parseFloat(cols[1]));  // Assuming the second column is the median price
         });
 
-        const trace2 = {
+        // Calculate the moving average
+        const movingAvg = movingAverage(medians, 30); // 7-day moving average
+
+        const traceDots = {
             x: dates,
             y: medians,
-            type: 'scatter',
-            mode: 'lines+markers',
-            marker: { color: 'green' },
-            line: { shape: 'spline' }
+            mode: 'markers',  // Only dots
+            marker: { color: 'blue', size: 6 },
+            name: 'Daily Median Price'
         };
 
-        const layout2 = {
-            title: 'Daily Median Price Chart',
+        const traceTrend = {
+            x: dates,
+            y: movingAvg,
+            mode: 'lines',  // Only line for the trend
+            line: { color: 'red', width: 2 },
+            name: '7-Day Moving Average'
+        };
+
+        const layout = {
+            title: 'Daily Median Price with Moving Average Trend',
             xaxis: { title: 'Date' },
             yaxis: { title: 'Median Price' },
             responsive: true
         };
 
-        Plotly.newPlot('chart2', [trace2], layout2);
+        Plotly.newPlot('chart', [traceDots, traceTrend], layout);
     })
     .catch(error => console.error('Error fetching or processing data:', error));
-
 </script>
 
 </body>
