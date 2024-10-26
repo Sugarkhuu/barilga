@@ -20,13 +20,21 @@
             width: 100%;
             height: 600px; /* Height of the choropleth chart */
         }
+        /* Add styles for the iframe */
+        #external-chart {
+            width: 100%;
+            height: 600px; /* Height of the embedded HTML */
+            border: none; /* Remove iframe border */
+        }
     </style>
 </head>
 <body>
 
 <h1>ОРОН СУУЦНЫ ҮНЭ <br> (медиан, УБ хот) </h1>
 <div id="chart"></div> <!-- Time series chart -->
-<div id="choropleth-chart"></div> <!-- Choropleth map -->
+
+<!-- Embed the external HTML file using an iframe -->
+<iframe id="external-chart" src="map/ub_real_estate_prices.html"></iframe>
 
 <script>
     // Function to calculate the moving average
@@ -144,59 +152,59 @@
     })
     .catch(error => console.error('Error fetching or processing data:', error));
 
-    // Create choropleth map
-    async function createChoropleth() {
-        const response = await fetch('https://raw.githubusercontent.com/Sugarkhuu/house_price/map/housing_prices.csv?');
-        const priceData = await response.text();
+    // // Create choropleth map
+    // async function createChoropleth() {
+    //     const response = await fetch('https://raw.githubusercontent.com/Sugarkhuu/house_price/map/housing_prices.csv?');
+    //     const priceData = await response.text();
 
-        const rows = priceData.split('\n').slice(1);
-        const districts = [];
-        const prices = [];
+    //     const rows = priceData.split('\n').slice(1);
+    //     const districts = [];
+    //     const prices = [];
 
-        rows.forEach(row => {
-            const cols = row.split(',');
-            districts.push(cols[0]);  // Assuming first column is district_id
-            prices.push(parseFloat(cols[2]));  // Assuming second column is median price
-        });
+    //     rows.forEach(row => {
+    //         const cols = row.split(',');
+    //         districts.push(cols[0]);  // Assuming first column is district_id
+    //         prices.push(parseFloat(cols[2]));  // Assuming second column is median price
+    //     });
 
-        console.log('Districts:',districts);
-        console.log('Prices:',prices);
+    //     console.log('Districts:',districts);
+    //     console.log('Prices:',prices);
 
-        const geojsonResponse = await fetch('https://raw.githubusercontent.com/Sugarkhuu/house_price/map/ub.geojson');
-        const geojson = await geojsonResponse.json();
+    //     const geojsonResponse = await fetch('https://raw.githubusercontent.com/Sugarkhuu/house_price/map/ub.geojson');
+    //     const geojson = await geojsonResponse.json();
 
-        console.log('Geojson:',geojson);
-        const choroplethLayout = {
-            title: "Улаанбаатар хотын орон сууцны үнэ",
-            geo: {
-                center: { lat: 47.8864, lon: 106.9057 }, // Center coordinates for Ulaanbaatar
-                zoom: 1, // Adjust zoom level to focus on Ulaanbaatar
-                showland: true,
-                landcolor: 'rgb(243, 243, 243)',
-                subunitcolor: 'rgb(0, 10, 255)',
-                countrycolor: 'rgb(100, 100, 100)',
-                showlakes: true,
-                lakecolor: 'rgb(255, 255, 255)',
-            }
-        };
+    //     console.log('Geojson:',geojson);
+    //     const choroplethLayout = {
+    //         title: "Улаанбаатар хотын орон сууцны үнэ",
+    //         geo: {
+    //             center: { lat: 47.8864, lon: 106.9057 }, // Center coordinates for Ulaanbaatar
+    //             zoom: 1, // Adjust zoom level to focus on Ulaanbaatar
+    //             showland: true,
+    //             landcolor: 'rgb(243, 243, 243)',
+    //             subunitcolor: 'rgb(0, 10, 255)',
+    //             countrycolor: 'rgb(100, 100, 100)',
+    //             showlakes: true,
+    //             lakecolor: 'rgb(255, 255, 255)',
+    //         }
+    //     };
 
-        const choroplethData = [{
-            type: 'choropleth',
-            z: prices,
-            locations: districts,
-            locationmode: 'geojson-id',
-            geojson: geojson,
-            colorbar: {
-                title: 'Сая төгрөг'
-            }
-        }];
+    //     const choroplethData = [{
+    //         type: 'choropleth',
+    //         z: prices,
+    //         locations: districts,
+    //         locationmode: 'geojson-id',
+    //         geojson: geojson,
+    //         colorbar: {
+    //             title: 'Сая төгрөг'
+    //         }
+    //     }];
 
-        Plotly.newPlot('choropleth-chart', choroplethData, choroplethLayout)
-        .then(() => console.log('Choropleth map created successfully.'))
-        .catch(error => console.error('Error creating choropleth map:', error));
-    }
+    //     Plotly.newPlot('choropleth-chart', choroplethData, choroplethLayout)
+    //     .then(() => console.log('Choropleth map created successfully.'))
+    //     .catch(error => console.error('Error creating choropleth map:', error));
+    // }
 
-    createChoropleth();  // Call the function to create the choropleth map
+    // createChoropleth();  // Call the function to create the choropleth map
 </script>
 
 </body>
