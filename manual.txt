@@ -1,0 +1,5 @@
+0. run gen_geojson.py if you have new location 
+
+1. run prep_price_data.py once you have new data 
+
+2. run main.py  to create the map
