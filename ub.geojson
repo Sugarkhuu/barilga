@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "district_id": 1,
-        "district_namee": "Sukhbaatar"
+        "district_name": "Sukhbaatar"
       },
       "geometry": {
         "type": "Polygon",
@@ -24,7 +24,7 @@
       "type": "Feature",
       "properties": {
         "district_id": 2,
-        "district_namee": "Bayanzurkh"
+        "district_name": "Bayanzurkh"
       },
       "geometry": {
         "type": "Polygon",
@@ -43,7 +43,7 @@
       "type": "Feature",
       "properties": {
         "district_id": 3,
-        "district_namee": "Chingeltei"
+        "district_name": "Chingeltei"
       },
       "geometry": {
         "type": "Polygon",
