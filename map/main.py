@@ -11,7 +11,7 @@ price_data_path = 'map/housing_prices.csv'  # Replace with the path to your CSV 
 price_data = pd.read_csv(price_data_path)
 
 # Merge GeoDataFrame with the price data on district ID
-merged_data = districts_geo.merge(price_data, left_on='district_id', right_on='district_id')
+merged_data = districts_geo.merge(price_data, left_on='location_id', right_on='location_id')
 
 # Convert GeoDataFrame to GeoJSON format for Plotly
 geojson = merged_data.__geo_interface__
@@ -20,8 +20,8 @@ geojson = merged_data.__geo_interface__
 fig = px.choropleth_mapbox(
     merged_data,
     geojson=geojson,
-    locations='district_id',
-    featureidkey='properties.district_id',
+    locations='location_id',
+    featureidkey='properties.location_id',
     color='median_price',
     color_continuous_scale="Viridis",
     range_color=(merged_data['median_price'].min(), merged_data['median_price'].max()),
@@ -30,8 +30,8 @@ fig = px.choropleth_mapbox(
     zoom=12,
     opacity=0.7,
     labels={'median_price': 'Median Price (₮)'},
-    hover_name='district_name_x',
-    hover_data={'district_id': False, 'median_price': True}
+    hover_name='district_name',
+    hover_data={'location_id': False, 'median_price': True}
 )
 
 # Update layout for better appearance

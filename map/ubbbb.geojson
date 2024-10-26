@@ -1,0 +1,62 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "district_id": 1,
+        "district_name": "Sukhbaatar"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.927121, 47.907755],
+            [106.928500, 47.903000],
+            [106.930991, 47.900041],
+            [106.943747, 47.903322],
+            [106.943126, 47.907494]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district_id": 2,
+        "district_name": "Bayanzurkh"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.9557, 47.9204],
+            [106.9643, 47.9192],
+            [106.9609, 47.9128],
+            [106.9532, 47.9145],
+            [106.9557, 47.9204]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district_id": 3,
+        "district_name": "Chingeltei"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.9121, 47.9336],
+            [106.9203, 47.9321],
+            [106.9180, 47.9276],
+            [106.9105, 47.9287],
+            [106.9121, 47.9336]
+          ]
+        ]
+      }
+    }
+  ]
+}
