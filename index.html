@@ -13,14 +13,20 @@
         #chart {
             margin-top: 0; /* Remove any margin above the chart */
             width: 100%;
-            height: 600px; /* Height of the chart */
+            height: 600px; /* Height of the time series chart */
+        }
+        #choropleth-chart {
+            margin-top: 50px; /* Space above the choropleth chart */
+            width: 100%;
+            height: 600px; /* Height of the choropleth chart */
         }
     </style>
 </head>
 <body>
 
 <h1>ОРОН СУУЦНЫ ҮНЭ <br> (медиан, УБ хот) </h1>
-<div id="chart"></div> <!-- Increased height -->
+<div id="chart"></div> <!-- Time series chart -->
+<div id="choropleth-chart"></div> <!-- Choropleth map -->
 
 <script>
     // Function to calculate the moving average
@@ -137,6 +143,53 @@
         Plotly.newPlot('chart', [traceDots, traceTrend7, traceTrend30, traceCount], layout);
     })
     .catch(error => console.error('Error fetching or processing data:', error));
+
+    // Create choropleth map
+    async function createChoropleth() {
+        const response = await fetch('housing_prices.csv');  // Replace with your actual CSV file path
+        const priceData = await response.text();
+
+        const rows = priceData.split('\n').slice(1);
+        const districts = [];
+        const prices = [];
+
+        rows.forEach(row => {
+            const cols = row.split(',');
+            districts.push(cols[0]);  // Assuming first column is district_id
+            prices.push(parseFloat(cols[1]));  // Assuming second column is median price
+        });
+
+        const geojsonResponse = await fetch('ub.geojson');  // Replace with your actual GeoJSON file path
+        const geojson = await geojsonResponse.json();
+
+        const choroplethLayout = {
+            title: "Улаанбаатар хотын орон сууцны үнэ",
+            geo: {
+                scope: 'asia',
+                showland: true,
+                landcolor: 'rgb(243, 243, 243)',
+                subunitcolor: 'rgb(255, 255, 255)',
+                countrycolor: 'rgb(255, 255, 255)',
+                showlakes: true,
+                lakecolor: 'rgb(255, 255, 255)',
+            }
+        };
+
+        const choroplethData = [{
+            type: 'choropleth',
+            z: prices,
+            locations: districts,
+            locationmode: 'geojson-id',
+            geojson: geojson,
+            colorbar: {
+                title: 'Сая төгрөг'
+            }
+        }];
+
+        Plotly.newPlot('choropleth-chart', choroplethData, choroplethLayout);
+    }
+
+    createChoropleth();  // Call the function to create the choropleth map
 </script>
 
 </body>
