@@ -65,7 +65,7 @@
             line: { color: '#ad9a9a', width: 0.5, shape: 'spline' }, // Smooth line in hex
             marker: { color: '#786e6d', size: 6 }, // Blue color in hex for dots 
             name: 'Тухайн өдөр',
-            hovertemplate: '%{x|%d/%m/%Y}: %{y:.2f}₮'  // Format hover as dd/mm/yyyy
+            hovertemplate: '%{x|%d/%m/%Y}: %{y:.2f}₮<extra></extra>'  // Format hover as dd/mm/yyyy
         };
 
         const traceTrend7 = {
@@ -74,7 +74,7 @@
             mode: 'lines',  // Only line for the trend
             line: { color: '#0d0d0d', width: 2 }, // Red color in hex
             name: 'Сүүлийн 7 хоног',
-            hovertemplate: 'Сүүлийн 7 хоног: %{y:.2f}₮'
+            hovertemplate: 'Сүүлийн 7 хоног: %{y:.2f}₮<extra></extra>'
         };
 
         const traceTrend30 = {
@@ -83,7 +83,7 @@
             mode: 'lines',  // Only line for the trend
             line: { color: '#0d0d0d', width: 2, dash: 'dot' }, // Green color in hex
             name: 'Сүүлийн 30 хоног',
-            hovertemplate: 'Сүүлийн 30 хоног: %{y:.2f}₮'
+            hovertemplate: 'Сүүлийн 30 хоног: %{y:.2f}₮<extra></extra>'
         };
 
         // New trace for count data
