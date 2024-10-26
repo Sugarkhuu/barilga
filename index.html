@@ -69,7 +69,7 @@
             y: medians,
             mode: 'lines+markers',  // Connect dots with lines
             line: { color: '#ad9a9a', width: 0.5, shape: 'spline' }, // Smooth line in hex
-            marker: { color: '#786e6d', size: 6 }, // Blue color in hex for dots 
+            marker: { color: '#786e6d', size: 6 }, // Marker color
             name: 'Тухайн өдөр',
             hovertemplate: '%{x|%d/%m/%Y}: %{y:.2f}₮<extra></extra>'  // Format hover as dd/mm/yyyy
         };
@@ -78,7 +78,7 @@
             x: dates,
             y: movingAvg7,
             mode: 'lines',  // Only line for the trend
-            line: { color: '#0d0d0d', width: 2 }, // Red color in hex
+            line: { color: '#0d0d0d', width: 2 }, // Trend line color
             name: 'Сүүлийн 7 хоног',
             hovertemplate: 'Сүүлийн 7 хоног: %{y:.2f}₮<extra></extra>'
         };
@@ -87,7 +87,7 @@
             x: dates,
             y: movingAvg30,
             mode: 'lines',  // Only line for the trend
-            line: { color: '#0d0d0d', width: 2, dash: 'dot' }, // Green color in hex
+            line: { color: '#0d0d0d', width: 2, dash: 'dot' }, // Dashed trend line
             name: 'Сүүлийн 30 хоног',
             hovertemplate: 'Сүүлийн 30 хоног: %{y:.2f}₮<extra></extra>'
         };
@@ -146,7 +146,7 @@
 
     // Create choropleth map
     async function createChoropleth() {
-        const response = await fetch('housing_prices.csv');  // Replace with your actual CSV file path
+        const response = await fetch('https://raw.githubusercontent.com/Sugarkhuu/house_price/map/housing_prices.csv?');
         const priceData = await response.text();
 
         const rows = priceData.split('\n').slice(1);
@@ -156,20 +156,25 @@
         rows.forEach(row => {
             const cols = row.split(',');
             districts.push(cols[0]);  // Assuming first column is district_id
-            prices.push(parseFloat(cols[1]));  // Assuming second column is median price
+            prices.push(parseFloat(cols[2]));  // Assuming second column is median price
         });
 
-        const geojsonResponse = await fetch('ub.geojson');  // Replace with your actual GeoJSON file path
+        console.log('Districts:',districts);
+        console.log('Prices:',prices);
+
+        const geojsonResponse = await fetch('https://raw.githubusercontent.com/Sugarkhuu/house_price/map/ub.geojson');
         const geojson = await geojsonResponse.json();
 
+        console.log('Geojson:',geojson);
         const choroplethLayout = {
             title: "Улаанбаатар хотын орон сууцны үнэ",
             geo: {
-                scope: 'asia',
+                center: { lat: 47.8864, lon: 106.9057 }, // Center coordinates for Ulaanbaatar
+                zoom: 1, // Adjust zoom level to focus on Ulaanbaatar
                 showland: true,
                 landcolor: 'rgb(243, 243, 243)',
-                subunitcolor: 'rgb(255, 255, 255)',
-                countrycolor: 'rgb(255, 255, 255)',
+                subunitcolor: 'rgb(0, 10, 255)',
+                countrycolor: 'rgb(100, 100, 100)',
                 showlakes: true,
                 lakecolor: 'rgb(255, 255, 255)',
             }
@@ -186,7 +191,9 @@
             }
         }];
 
-        Plotly.newPlot('choropleth-chart', choroplethData, choroplethLayout);
+        Plotly.newPlot('choropleth-chart', choroplethData, choroplethLayout)
+        .then(() => console.log('Choropleth map created successfully.'))
+        .catch(error => console.error('Error creating choropleth map:', error));
     }
 
     createChoropleth();  // Call the function to create the choropleth map
