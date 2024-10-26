@@ -30,7 +30,7 @@ fig = px.choropleth_mapbox(
     zoom=12,
     opacity=0.7,
     labels={'median_price': 'Median Price (₮)'},
-    hover_name='district_name',
+    hover_name='mylocation',
     hover_data={'location_id': False, 'median_price': True}
 )
 

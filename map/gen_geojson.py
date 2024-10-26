@@ -35,5 +35,5 @@ for (location_id, mylocation), group in grouped:
     geojson['features'].append(feature)
 
 # Save the GeoJSON to a file with UTF-8 encoding
-with open('output.geojson', 'w', encoding='utf-8-sig') as f:
+with open('map/ub.geojson', 'w', encoding='utf-8-sig') as f:
     json.dump(geojson, f, ensure_ascii=False, indent=2)
