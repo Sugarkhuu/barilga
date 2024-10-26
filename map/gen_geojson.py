@@ -10,11 +10,11 @@ geojson = {
     "features": []
 }
 
-# Group by location_id and mylocation
-grouped = df.groupby(['location_id', 'mylocation'])
+# Group by location_id and geo_location
+grouped = df.groupby(['location_id', 'geo_location'])
 
 # Iterate over each group
-for (location_id, mylocation), group in grouped:
+for (location_id, geo_location), group in grouped:
     # Prepare coordinates as a list of lists
     coordinates = group[['lon', 'lat']].values.tolist()
 
@@ -23,7 +23,7 @@ for (location_id, mylocation), group in grouped:
         "type": "Feature",
         "properties": {
             "location_id": int(location_id),  # Convert to native int
-            "mylocation": mylocation  # This can be in Cyrillic
+            "geo_location": geo_location  # This can be in Cyrillic
         },
         "geometry": {
             "type": "Polygon",

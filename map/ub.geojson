@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 1,
-        "mylocation": "Орчлон сургууль"
+        "geo_location": "Орчлон сургууль"
       },
       "geometry": {
         "type": "Polygon",
@@ -39,7 +39,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 2,
-        "mylocation": "Жаргалан хотхон"
+        "geo_location": "Жаргалан хотхон"
       },
       "geometry": {
         "type": "Polygon",
@@ -69,7 +69,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 3,
-        "mylocation": "Цэнгэлдэх"
+        "geo_location": "Цэнгэлдэх"
       },
       "geometry": {
         "type": "Polygon",
@@ -111,7 +111,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 4,
-        "mylocation": "Баянмонгол хороолол"
+        "geo_location": "Баянмонгол хороолол"
       },
       "geometry": {
         "type": "Polygon",
@@ -145,7 +145,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 5,
-        "mylocation": "Цэцэрлэгт хүрээлэн"
+        "geo_location": "Цэцэрлэгт хүрээлэн"
       },
       "geometry": {
         "type": "Polygon",
@@ -175,7 +175,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 6,
-        "mylocation": "Хүннү"
+        "geo_location": "Хүннү"
       },
       "geometry": {
         "type": "Polygon",
@@ -209,7 +209,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 7,
-        "mylocation": "Гэгээнтэн"
+        "geo_location": "Гэгээнтэн"
       },
       "geometry": {
         "type": "Polygon",
@@ -243,7 +243,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 8,
-        "mylocation": "Удирдлагын акад"
+        "geo_location": "Удирдлагын акад"
       },
       "geometry": {
         "type": "Polygon",
@@ -289,7 +289,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 9,
-        "mylocation": "Маршал-Ривер"
+        "geo_location": "Маршал-Ривер"
       },
       "geometry": {
         "type": "Polygon",
@@ -327,7 +327,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 10,
-        "mylocation": "Оргил зайсан"
+        "geo_location": "Оргил зайсан"
       },
       "geometry": {
         "type": "Polygon",
@@ -361,7 +361,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 11,
-        "mylocation": "УБ сувилал"
+        "geo_location": "УБ сувилал"
       },
       "geometry": {
         "type": "Polygon",
@@ -395,7 +395,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 12,
-        "mylocation": "19-р хороолол урд"
+        "geo_location": "19-р хороолол урд"
       },
       "geometry": {
         "type": "Polygon",
@@ -425,7 +425,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 13,
-        "mylocation": "19-р хороолол"
+        "geo_location": "19-р хороолол"
       },
       "geometry": {
         "type": "Polygon",
@@ -455,7 +455,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 14,
-        "mylocation": "120 мянгат"
+        "geo_location": "120 мянгат"
       },
       "geometry": {
         "type": "Polygon",
@@ -485,7 +485,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 15,
-        "mylocation": "Мишээл экспо"
+        "geo_location": "Мишээл экспо"
       },
       "geometry": {
         "type": "Polygon",
@@ -511,7 +511,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 16,
-        "mylocation": "Алтай хотхон"
+        "geo_location": "Алтай хотхон"
       },
       "geometry": {
         "type": "Polygon",
@@ -541,7 +541,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 17,
-        "mylocation": "Нарны хороолол"
+        "geo_location": "Нарны хороолол"
       },
       "geometry": {
         "type": "Polygon",
@@ -575,7 +575,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 18,
-        "mylocation": "Замын цагдаа"
+        "geo_location": "Замын цагдаа"
       },
       "geometry": {
         "type": "Polygon",
@@ -605,7 +605,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 19,
-        "mylocation": "Натур"
+        "geo_location": "Натур"
       },
       "geometry": {
         "type": "Polygon",
@@ -635,7 +635,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 20,
-        "mylocation": "13-р хороолол"
+        "geo_location": "13-р хороолол"
       },
       "geometry": {
         "type": "Polygon",
@@ -665,7 +665,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 21,
-        "mylocation": "1-р эмнэлэг"
+        "geo_location": "1-р эмнэлэг"
       },
       "geometry": {
         "type": "Polygon",
@@ -695,7 +695,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 22,
-        "mylocation": "Wall street"
+        "geo_location": "Wall street"
       },
       "geometry": {
         "type": "Polygon",
@@ -733,7 +733,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 23,
-        "mylocation": "Багшийн дээд"
+        "geo_location": "Багшийн дээд"
       },
       "geometry": {
         "type": "Polygon",
@@ -763,7 +763,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 24,
-        "mylocation": "Сансарын имарт"
+        "geo_location": "Сансарын имарт"
       },
       "geometry": {
         "type": "Polygon",
@@ -793,7 +793,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 25,
-        "mylocation": "Сансар"
+        "geo_location": "Сансар"
       },
       "geometry": {
         "type": "Polygon",
@@ -831,7 +831,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 26,
-        "mylocation": "Америк элчин"
+        "geo_location": "Америк элчин"
       },
       "geometry": {
         "type": "Polygon",
@@ -861,7 +861,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 27,
-        "mylocation": "11-р хороолол"
+        "geo_location": "11-р хороолол"
       },
       "geometry": {
         "type": "Polygon",
@@ -899,7 +899,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 28,
-        "mylocation": "МУИС"
+        "geo_location": "МУИС"
       },
       "geometry": {
         "type": "Polygon",
@@ -937,7 +937,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 29,
-        "mylocation": "Монел-Гутлын 22"
+        "geo_location": "Монел-Гутлын 22"
       },
       "geometry": {
         "type": "Polygon",
@@ -967,7 +967,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 30,
-        "mylocation": "Ард"
+        "geo_location": "Ард"
       },
       "geometry": {
         "type": "Polygon",
@@ -997,7 +997,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 31,
-        "mylocation": "Их дэлгүүр"
+        "geo_location": "Их дэлгүүр"
       },
       "geometry": {
         "type": "Polygon",
@@ -1027,7 +1027,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 32,
-        "mylocation": "220-Цирк"
+        "geo_location": "220-Цирк"
       },
       "geometry": {
         "type": "Polygon",
@@ -1057,7 +1057,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 33,
-        "mylocation": "Хүүхдийн 100"
+        "geo_location": "Хүүхдийн 100"
       },
       "geometry": {
         "type": "Polygon",
@@ -1087,7 +1087,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 34,
-        "mylocation": "40 мянгат"
+        "geo_location": "40 мянгат"
       },
       "geometry": {
         "type": "Polygon",
@@ -1121,7 +1121,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 35,
-        "mylocation": "Зурагт"
+        "geo_location": "Зурагт"
       },
       "geometry": {
         "type": "Polygon",
@@ -1151,7 +1151,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 36,
-        "mylocation": "Модны 2"
+        "geo_location": "Модны 2"
       },
       "geometry": {
         "type": "Polygon",
@@ -1181,7 +1181,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 37,
-        "mylocation": "10-р хороолол"
+        "geo_location": "10-р хороолол"
       },
       "geometry": {
         "type": "Polygon",
@@ -1211,7 +1211,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 38,
-        "mylocation": "3, 4-р хороолол"
+        "geo_location": "3, 4-р хороолол"
       },
       "geometry": {
         "type": "Polygon",
@@ -1257,7 +1257,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 39,
-        "mylocation": "1-р хороолол"
+        "geo_location": "1-р хороолол"
       },
       "geometry": {
         "type": "Polygon",
@@ -1291,7 +1291,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 40,
-        "mylocation": "5 шар"
+        "geo_location": "5 шар"
       },
       "geometry": {
         "type": "Polygon",
@@ -1321,7 +1321,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 41,
-        "mylocation": "21-р хороолол"
+        "geo_location": "21-р хороолол"
       },
       "geometry": {
         "type": "Polygon",
@@ -1371,7 +1371,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 42,
-        "mylocation": "Халдварт"
+        "geo_location": "Халдварт"
       },
       "geometry": {
         "type": "Polygon",
@@ -1401,7 +1401,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 43,
-        "mylocation": "Жуков"
+        "geo_location": "Жуков"
       },
       "geometry": {
         "type": "Polygon",
@@ -1431,7 +1431,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 44,
-        "mylocation": "Офицер"
+        "geo_location": "Офицер"
       },
       "geometry": {
         "type": "Polygon",
@@ -1469,7 +1469,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 45,
-        "mylocation": "Цайз"
+        "geo_location": "Цайз"
       },
       "geometry": {
         "type": "Polygon",
@@ -1499,7 +1499,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 46,
-        "mylocation": "КТМС"
+        "geo_location": "КТМС"
       },
       "geometry": {
         "type": "Polygon",
@@ -1525,7 +1525,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 47,
-        "mylocation": "Улаанхуаран"
+        "geo_location": "Улаанхуаран"
       },
       "geometry": {
         "type": "Polygon",
@@ -1555,7 +1555,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 48,
-        "mylocation": "Амгалан"
+        "geo_location": "Амгалан"
       },
       "geometry": {
         "type": "Polygon",
@@ -1585,7 +1585,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 49,
-        "mylocation": "Төмөр зам"
+        "geo_location": "Төмөр зам"
       },
       "geometry": {
         "type": "Polygon",
@@ -1615,7 +1615,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 50,
-        "mylocation": "Баянбүрд"
+        "geo_location": "Баянбүрд"
       },
       "geometry": {
         "type": "Polygon",
@@ -1645,7 +1645,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 51,
-        "mylocation": "100 айл-Дөлгөөн нуур"
+        "geo_location": "100 айл-Дөлгөөн нуур"
       },
       "geometry": {
         "type": "Polygon",
@@ -1679,7 +1679,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 52,
-        "mylocation": "Зайсан"
+        "geo_location": "Зайсан"
       },
       "geometry": {
         "type": "Polygon",
@@ -1709,7 +1709,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 53,
-        "mylocation": "Нисэх"
+        "geo_location": "Нисэх"
       },
       "geometry": {
         "type": "Polygon",
@@ -1743,7 +1743,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 54,
-        "mylocation": "Хүннү молл"
+        "geo_location": "Хүннү молл"
       },
       "geometry": {
         "type": "Polygon",
@@ -1773,7 +1773,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 55,
-        "mylocation": "Яармаг 2"
+        "geo_location": "Яармаг 2"
       },
       "geometry": {
         "type": "Polygon",
@@ -1803,7 +1803,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 56,
-        "mylocation": "Туушин"
+        "geo_location": "Туушин"
       },
       "geometry": {
         "type": "Polygon",
@@ -1833,7 +1833,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 57,
-        "mylocation": "Бага тэнгэр"
+        "geo_location": "Бага тэнгэр"
       },
       "geometry": {
         "type": "Polygon",
@@ -1863,7 +1863,7 @@
       "type": "Feature",
       "properties": {
         "location_id": 58,
-        "mylocation": "Толгойт"
+        "geo_location": "Толгойт"
       },
       "geometry": {
         "type": "Polygon",
@@ -1888,6 +1888,36 @@
             [
               106.78722903494432,
               47.906888339528514
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": 59,
+        "geo_location": "Их монгол хороолол"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.93692984414636,
+              47.907717473534994
+            ],
+            [
+              106.94334219766937,
+              47.90747080200951
+            ],
+            [
+              106.9434681596324,
+              47.90501250038542
+            ],
+            [
+              106.9368073739526,
+              47.90489007753713
             ]
           ]
         ]
