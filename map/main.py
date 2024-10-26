@@ -23,7 +23,13 @@ fig = px.choropleth_mapbox(
     locations='location_id',
     featureidkey='properties.location_id',
     color='median_price',
-    color_continuous_scale="Viridis",
+    color_continuous_scale=[
+        (0, 'rgb(150, 150, 150)'),    # Palest grey still visible
+        (0.25, 'rgb(120, 110, 110)'),  # Even lighter grey
+        (0.5, 'rgb(80, 90, 90)'),  # Lighter grey
+        (0.75, 'rgb(60, 70, 70)'),  # Medium dark grey
+        (1, 'rgb(50, 50, 50)')   # Dark grey for lowest value
+    ],
     range_color=(merged_data['median_price'].min(), merged_data['median_price'].max()),
     mapbox_style="open-street-map",  # Set to OpenStreetMap
     center={"lat": 47.9214, "lon": 106.9057},
